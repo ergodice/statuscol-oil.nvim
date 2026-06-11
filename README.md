@@ -8,7 +8,7 @@ No more accidentally moving the cursor into permissions, file sizes, or owner fi
 
 ✨ Small change. Smoother workflow.
 
-![plugin visual](./image/2026-06-11_23-22.png) 
+![plugin visual](./images/2026-06-11_23-22.png) 
 
 ---
 

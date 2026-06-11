@@ -1,5 +1,5 @@
 return {
     size_prefer_units = false,
-    size_width = false,
+    size_width = 5,
     mtime_format = "%Y-%m-%d %H:%M:%S",
 }
