@@ -33,10 +33,14 @@ local is_oil_buffer = function()
     return vim.bo.filetype == "oil"
 end
 
+local is_windows = function()
+    return vim.fn.has("win32") == 1
+end
+
 M.permission = {
     text = {
         function(args)
-            if not is_oil_buffer() then
+            if not is_oil_buffer() or is_windows then
                 return ""
             end
             local oil = require("oil")
@@ -202,23 +206,25 @@ M.mtime = {
     hl = "NonText"
 }
 
-local uid_to_name = {}
+if not is_windows then
+    local uid_to_name = {}
 
-for line in io.lines("/etc/passwd") do
-    local name, _, uid = line:match("^([^:]+):([^:]*):(%d+):")
-    if name and uid then
-        uid_to_name[tonumber(uid)] = name
+    for line in io.lines("/etc/passwd") do
+        local name, _, uid = line:match("^([^:]+):([^:]*):(%d+):")
+        if name and uid then
+            uid_to_name[tonumber(uid)] = name
+        end
     end
-end
 
-local function username_from_uid(uid)
-    return uid_to_name[uid]
+    local function username_from_uid(uid)
+        return uid_to_name[uid]
+    end
 end
 
 M.owner = {
     text = {
         function(args)
-            if not is_oil_buffer() then
+            if not is_oil_buffer() or is_windows then
                 return ""
             end
             local oil = require("oil")
@@ -242,12 +248,14 @@ M.owner = {
     hl = "NonText"
 }
 
-local gid_to_name = {}
+if not is_windows then
+    local gid_to_name = {}
 
-for line in io.lines("/etc/group") do
-    local name, _, gid = line:match("^([^:]+):([^:]*):(%d+):")
-    if name and gid then
-        gid_to_name[tonumber(gid)] = name
+    for line in io.lines("/etc/group") do
+        local name, _, gid = line:match("^([^:]+):([^:]*):(%d+):")
+        if name and gid then
+            gid_to_name[tonumber(gid)] = name
+        end
     end
 end
 
@@ -258,7 +266,7 @@ end
 M.group = {
     text = {
         function(args)
-            if not is_oil_buffer() then
+            if not is_oil_buffer() or is_windows then
                 return ""
             end
             local oil = require("oil")
