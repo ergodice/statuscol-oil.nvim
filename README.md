@@ -58,7 +58,7 @@ Oil treats metadata as part of the buffer.
 
 While functional, this means:
 
-* ❌ Cursor can move into metadata fields
+* ❌ Cursor can move into metadata column
 * ❌ Metadata occupies editable buffer space
 * ❌ File information and file names are visually mixed together
 
@@ -160,20 +160,6 @@ opts = {
     owner_width = 10,
 }
 ```
-
----
-
-## 💡 Philosophy
-
-This plugin exists to solve a tiny annoyance.
-
-Metadata is useful to **see**.
-
-Metadata is rarely useful to **edit**.
-
-By moving metadata into the Status Column, Oil feels a little more natural, a little cleaner, and a little closer to how file browsers intuitively behave.
-
-Sometimes the best plugins are the ones you stop noticing after a day of use.
 
 ---
 
