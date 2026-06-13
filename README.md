@@ -143,19 +143,21 @@ Also, The provided component are listed below.
 
 ## ⚙️ Options
 
-| Option              | Default            | Description |
-|---------------------|--------------------|-------------|
-| `size_prefer_units` | `true`             | When both representations fit within `size_width`, prefer human-readable sizes (`1K`, `12M`) over raw byte counts (`1024`, `12582912`). |
-| `size_width`        | `4`                | Width of the size column |
-| `mtime_format`      | `"%Y-%m-%d %H:%M"` | Modification time format |
+| Option              | Default               | Description |
+|---------------------|-----------------------|-------------|
+| `size_prefer_units` | `false`               | When both representations fit within `size_width`, prefer human-readable sizes (`1K`, `12M`) over raw byte counts (`1024`, `12582912`). |
+| `size_width`        | `5`                   | Width of the size column |
+| `mtime_format`      | `"%Y-%m-%d %H:%M:%S"` | Modification time format |
+| `owner_width`       | `7`                   | Maximum length of the owner's text |
 
 Example:
 
 ```lua
 opts = {
     size_prefer_units = true,
-    size_width = 4,
+    size_width = 6,
     mtime_format = "%Y-%m-%d %H:%M",
+    owner_width = 10,
 }
 ```
 
