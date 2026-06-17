@@ -4,7 +4,7 @@ local util = require("statuscol-oil.util")
 local devicons = require("nvim-web-devicons")
 
 M.icon = function(args)
-	if not util.is_oil_buffer() then
+	if not util.is_oil_buffer() or args.empty then
 		return ""
 	end
 

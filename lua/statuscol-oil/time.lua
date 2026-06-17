@@ -20,7 +20,7 @@ local function format_time(unix_time, format)
 end
 
 M.mtime = function(args)
-	if not util.is_oil_buffer() then
+	if not util.is_oil_buffer() or args.empty then
 		return ""
 	end
 

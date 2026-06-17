@@ -5,7 +5,7 @@ local state = require("statuscol-oil.state")
 
 local username_from_uid
 
-if not util.is_windows() then
+if not util.is_windows then
     local uid_to_name = {}
 
     for line in io.lines("/etc/passwd") do
@@ -21,7 +21,7 @@ if not util.is_windows() then
 end
 
 M.owner = function(args)
-    if not util.is_oil_buffer() or util.is_windows() then
+    if not util.is_oil_buffer() or util.is_windows or args.empty then
         return ""
     end
 

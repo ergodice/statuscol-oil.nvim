@@ -19,7 +19,7 @@ local function perm_to_string(mode)
 end
 
 M.permission = function(args)
-    if not util.is_oil_buffer() or util.is_windows() then
+    if not util.is_oil_buffer() or util.is_windows or args.empty then
         return ""
     end
 

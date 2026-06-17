@@ -4,7 +4,7 @@ local util = require("statuscol-oil.util")
 
 local groupname_from_gid
 
-if not util.is_windows() then
+if not util.is_windows then
     local gid_to_name = {}
 
     for line in io.lines("/etc/group") do
@@ -20,7 +20,7 @@ if not util.is_windows() then
 end
 
 M.group = function(args)
-    if not util.is_oil_buffer() or util.is_windows() then
+    if not util.is_oil_buffer() or util.is_windows or args.empty then
         return ""
     end
 
