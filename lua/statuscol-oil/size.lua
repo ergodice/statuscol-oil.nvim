@@ -7,10 +7,12 @@ local units = { "", "K", "M", "G", "T" }
 
 local function get_digits_width(num)
     local digits = 1
-    if num >= 1000 then
+    if num >= 100 then
         digits = 3
     elseif num >= 10 then
         digits = 2
+    else
+        digits = 1
     end
     return digits
 end
